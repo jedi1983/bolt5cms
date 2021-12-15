@@ -1,0 +1,34 @@
+version: '3.4'
+
+services:
+
+  php:
+    build:
+      context: ./
+      dockerfile: Dockerfileprod
+      target: php
+    healthcheck:
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 30s
+    depends_on:
+      - db
+      - mailcatcher
+    volumes:
+      - ./:/srv/bolt:rw,cached
+      - ./docker/php/conf.d/bolt.dev.ini:/usr/local/etc/php/conf.d/bolt.ini
+
+  nginx:
+    build:
+      context: ./
+      target: nginx
+    depends_on:
+      - php
+    volumes:
+      - ./public:/srv/bolt/public:ro
+    ports:
+      - target: 80
+        published: 8080
+        protocol: tcp
+
