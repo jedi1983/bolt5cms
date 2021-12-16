@@ -19,6 +19,7 @@ services:
   nginx:
     build:
       context: ./
+      dockerfile: Dockerfileprod
       target: nginx
     depends_on:
       - php
