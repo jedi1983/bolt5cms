@@ -1,7 +1,6 @@
 version: '3.4'
 
 services:
-
   php:
     build:
       context: ./
@@ -17,20 +16,5 @@ services:
       - ./docker/php/conf.d/bolt.dev.ini:/usr/local/etc/php/conf.d/bolt.ini
       # if you develop on Linux, you may use a bind-mounted host directory instead
       # - ./var:/srv/bolt/var:rw
-
-  nginx:
-    build:
-      context: ./
-      dockerfile: Dockerfileprod
-      target: nginx
-    depends_on:
-      - php
-    volumes:
-      - ./public:/srv/bolt/public:ro
-    ports:
-      - target: 80
-        published: 8080
-        protocol: tcp
-
 volumes:
   db-data: {}

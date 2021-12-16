@@ -17,17 +17,19 @@ services:
       - target: 3306
         published: 3306
         protocol: tcp
-        
-  # h2-proxy:
-  #   build:
-  #     context: ./docker/h2-proxy
-  #   depends_on:
-  #     - nginx
-  #   ports:
-  #     - target: 8443
-  #       published: 8443
-  #       protocol: tcp
-
+  nginx:
+    build:
+      context: ./
+      dockerfile: Dockerfileprod
+      target: nginx
+    depends_on:
+      - php
+    volumes:
+      - ./public:/srv/bolt/public:ro
+    ports:
+      - target: 80
+        published: 8080
+        protocol: tcp
   mailcatcher:
     image: schickling/mailcatcher
     ports:
