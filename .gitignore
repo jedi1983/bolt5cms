@@ -76,3 +76,5 @@ docker-compose.override.yaml
 /vendor/
 .web-server-pid
 ###< symfony/framework-bundle ###
+###< adding more ###
+.env
