@@ -78,3 +78,4 @@ docker-compose.override.yaml
 ###< symfony/framework-bundle ###
 ###< adding more ###
 .env
+/certbot
