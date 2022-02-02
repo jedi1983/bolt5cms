@@ -24,9 +24,9 @@ services:
     depends_on:
       - php
     volumes:
-      - ./public:/srv/bolt/public:ro
-      - ./certbot/www:/var/www/certbot/:ro
-      - ./certbot/conf/:/etc/nginx/ssl/:ro
+      - ./public:/srv/bolt/public:rw
+      - ./certbot/www:/srv/bolt/public/certbot
+      - ./certbot/conf:/etc/nginx/ssl
     ports:
       - target: 80
         published: 80
@@ -37,6 +37,6 @@ services:
   certbot:
     image: certbot/certbot:latest
     volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/letsencrypt/:rw
-    command: certonly --webroot -w /var/www/certbot --force-renewal --email roland.antonius@gmail.com -d codebyjedi.com --agree-tos
+      - ./certbot/www:/srv/bolt/public/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    command: certonly --webroot -w /srv/bolt/public/certbot --force-renewal --email roland.antonius@gmail.com -d codebyjedi.com --agree-tos
