@@ -39,4 +39,4 @@ services:
     volumes:
       - ./certbot/www:/srv/bolt/public/certbot
       - ./certbot/conf:/etc/letsencrypt
-    command: certonly --webroot -w /srv/bolt/public/certbot --force-renewal --email roland.antonius@gmail.com -d codebyjedi.com --agree-tos
+    command: certonly --webroot -w /srv/bolt/public/certbot --force-renewal --email roland.antonius@gmail.com -d codebyjedi.com --agree-tos --dry-run
