@@ -26,10 +26,21 @@ services:
       - php
     volumes:
       - ./public:/srv/bolt/public:ro
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
     ports:
+      - target: 443
+        published: 8443
+        protocol: tcp
       - target: 80
         published: 8080
         protocol: tcp
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
+    command: certonly --webroot -w /var/www/certbot --force-renewal --email roland.antonius@gmail.com -d localhost --agree-tos
   mailcatcher:
     image: schickling/mailcatcher
     ports:
