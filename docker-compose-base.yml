@@ -1,20 +1,4 @@
 version: '3.4'
 
-services:
-  php:
-    build:
-      context: ./
-      dockerfile: Dockerfileprod
-      target: php
-    healthcheck:
-      interval: 10s
-      timeout: 3s
-      retries: 3
-      start_period: 30s
-    volumes:
-      - ./:/srv/bolt:rw,cached
-      - ./docker/php/conf.d/bolt.dev.ini:/usr/local/etc/php/conf.d/bolt.ini
-      # if you develop on Linux, you may use a bind-mounted host directory instead
-      # - ./var:/srv/bolt/var:rw
 volumes:
   db-data: {}
