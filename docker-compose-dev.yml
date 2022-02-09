@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
-  php:
+  boltphp:
     build:
       context: ./
       dockerfile: Dockerfiledev
@@ -30,13 +30,13 @@ services:
       - target: 3306
         published: 3306
         protocol: tcp
-  nginx:
+  bolt5nginx:
     build:
       context: ./
-      dockerfile: Dockerfileprod
+      dockerfile: Dockerfiledev
       target: nginx
     depends_on:
-      - php
+      - boltphp
     volumes:
       - ./public:/srv/bolt/public:ro
     ports:
