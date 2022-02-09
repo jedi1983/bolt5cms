@@ -1,6 +1,19 @@
 version: '3.4'
 
 services:
+  php:
+    build:
+      context: ./
+      dockerfile: Dockerfileprod
+      target: php
+    healthcheck:
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 30s
+    volumes:
+      - ./:/srv/bolt:rw,cached
+      - ./docker/php/conf.d/bolt.dev.ini:/usr/local/etc/php/conf.d/bolt.ini
   db:
     platform: linux/x86_64
     image: mysql:5.7
@@ -26,21 +39,10 @@ services:
       - php
     volumes:
       - ./public:/srv/bolt/public:ro
-      - ./certbot/www:/var/www/certbot/:ro
-      - ./certbot/conf/:/etc/nginx/ssl/:ro
     ports:
-      - target: 443
-        published: 8443
-        protocol: tcp
       - target: 80
         published: 8080
         protocol: tcp
-  certbot:
-    image: certbot/certbot:latest
-    volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/letsencrypt/:rw
-    command: certonly --webroot -w /var/www/certbot --force-renewal --email roland.antonius@gmail.com -d localhost --agree-tos
   mailcatcher:
     image: schickling/mailcatcher
     ports:
