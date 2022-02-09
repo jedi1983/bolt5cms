@@ -36,7 +36,7 @@ services:
       dockerfile: Dockerfiledev
       target: nginx
     depends_on:
-      - php
+      - boltphp
     volumes:
       - ./public:/srv/bolt/public:ro
     ports:
