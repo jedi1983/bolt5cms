@@ -2,6 +2,7 @@ version: '3.4'
 
 services:
   boltphp:
+    container_name: boltphp
     build:
       context: ./
       dockerfile: Dockerfiledev
@@ -15,6 +16,7 @@ services:
       - ./:/srv/bolt:rw,cached
       - ./docker/php/conf.d/bolt.dev.ini:/usr/local/etc/php/conf.d/bolt.ini
   db:
+    container_name: freeblog_db_1
     platform: linux/x86_64
     image: mysql:5.7
     environment:
@@ -31,6 +33,7 @@ services:
         published: 3306
         protocol: tcp
   bolt5nginx:
+    container_name: bolt5nginx
     build:
       context: ./
       dockerfile: Dockerfiledev
