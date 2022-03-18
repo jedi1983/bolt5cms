@@ -45,7 +45,8 @@ RUN set -eux; \
 		gd \
 		exif \
 		pdo \
-		iconv \
+		#closeed on development somehow it's not working on Dev
+		#iconv \ 
 		pcntl \
 		mbstring \
 		fileinfo \
