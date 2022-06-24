@@ -2,8 +2,8 @@
 # in the project root.
 
 # The name of the website
-sitename: A Jedi Blog
-payoff: Life As I Know It
+sitename: In A Galaxy Far Far Away..
+payoff: You must unlearn what you have learned
 
 secret: '%env(APP_SECRET)%'
 

@@ -1,10 +1,10 @@
 <p class="meta is-hidden-touch">
     {% if record.link() and (record.link != global.request.server.get('REQUEST_URI')) %}
-    <a href="{{ record.link() }}" class="button is-link {% if extended|default() %}is-outlined{% endif %}">
+    <a href="{{ record.link() }}" class="button is-primary is-light {% if extended|default() %}is-outlined{% endif %}">
         {{ __('general.phrase.read-more') }}
     </a>
     {% elseif record.contentlink %}
-    <a href="{{ relative_path(record.contentlink|e) }}" class="button is-link {% if extended|default() %}is-outlined{% endif %}">
+    <a href="{{ relative_path(record.contentlink|e) }}" class="button is-primary is-light {% if extended|default() %}is-outlined{% endif %}">
         {{ __('general.phrase.read-more') }}
     </a>
     {% endif %}
