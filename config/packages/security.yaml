@@ -10,11 +10,14 @@ security:
             security: false
         main:
             pattern: ^/
-            anonymous: true
             user_checker: Bolt\Security\UserChecker
-            guard: { authenticators: [Bolt\Security\LoginFormAuthenticator] }
-            logout: { handler: Bolt\Security\LogoutListener, path: bolt_logout, target: bolt_login }
+            logout: { path: bolt_logout, target: bolt_login }
             remember_me: { secret: '%kernel.secret%', lifetime: 2592000, remember_me_parameter: 'login[remember_me]' }
+            custom_authenticators: [Bolt\Security\LoginFormAuthenticator]
+            entry_point: Bolt\Security\AuthenticationEntryPointRedirector
+        api:
+            pattern: ^/api
+            http_basic: ~
     role_hierarchy:
         ROLE_DEVELOPER:
             - ROLE_ADMIN
@@ -26,6 +29,7 @@ security:
         ROLE_EDITOR:
             - ROLE_USER
         ROLE_USER: {  }
+        ROLE_WEBSERVICE: {  }
     access_control:
         -
             path: ^%bolt.backend_url%/login$
@@ -51,3 +55,6 @@ security:
         -
             path: ^/(%app_locales%)%bolt.backend_url%
             roles: IS_AUTHENTICATED_REMEMBERED
+    enable_authenticator_manager: true
+    password_hashers:
+        Bolt\Entity\User: auto

@@ -16,6 +16,7 @@ services:
             $projectDir: '%kernel.project_dir%'
             $publicFolder: '%bolt.public_folder%'
             $tablePrefix: '%bolt.table_prefix%'
+            $backendUrl: '%bolt.backend_url%'
     App\:
         resource: '../src/*'
         exclude: '../src/{Entity,Exception,Kernel.php}'
@@ -34,10 +35,6 @@ services:
             - { name: doctrine.event_listener, event: postLoad }
             - { name: doctrine.event_listener, event: prePersist }
             - { name: doctrine.event_listener, event: preUpdate }
-    Bolt\Event\Listener\FieldFillListener:
-        tags:
-            - { name: doctrine.event_listener, event: postLoad }
-            - { name: doctrine.event_listener, event: preUpdate }
     Bolt\Event\Listener\FieldDiscriminatorListener:
         tags:
             - { name: doctrine.event_listener, event: loadClassMetadata }
@@ -53,9 +50,9 @@ services:
             - !tagged_iterator bolt.extension_backend_menu
         tags:
             - { name: knp_menu.menu_builder, method: createAdminMenu, alias: admin_menu }
-    Bolt\Menu\BackendMenuBuilderInterface: '@Bolt\Menu\BackendMenuBuilder'
+    Bolt\Menu\BackendMenuBuilderInterface: '@Bolt\Menu\BackendMenu'
     Bolt\Menu\FrontendMenuBuilder: ~
-    Bolt\Menu\FrontendMenuBuilderInterface: '@Bolt\Menu\FrontendMenuBuilder'
+    Bolt\Menu\FrontendMenuBuilderInterface: '@Bolt\Menu\FrontendMenu'
     Bolt\Storage\ContentQueryParser:
         calls:
             - { method: addService, arguments: [select, '@Bolt\Storage\SelectQuery'] }
@@ -96,3 +93,22 @@ services:
         class: Jasny\Twig\ArrayExtension
         tags:
             - { name: twig.extension }
+    Bolt\Cache\RelatedOptionsUtilityCacher:
+        decorates: Bolt\Utils\RelatedOptionsUtility
+    Bolt\Cache\CanonicalCacher:
+        decorates: Bolt\Canonical
+    Bolt\Cache\SelectOptionsCacher:
+        decorates: Bolt\Twig\FieldExtension
+    Bolt\Cache\ContentToArrayCacher:
+        decorates: Bolt\Twig\JsonExtension
+    Bolt\Api\ContentDataPersister:
+        decorates: api_platform.doctrine.orm.data_persister
+    Symfony\Bridge\Twig\Extension\AssetExtension: '@twig.extension.assets'
+    Symfony\Component\DependencyInjection\ContainerInterface: '@service_container'
+    Bolt\Cache\GetFormatCacher:
+        decorates: Bolt\Utils\ContentHelper
+    Bolt\Cache\FilesIndexCacher:
+        decorates: Bolt\Utils\FilesIndex
+    Bolt\Event\Listener\FieldFillListener:
+        tags:
+            - { name: doctrine.event_listener, event: preUpdate }
