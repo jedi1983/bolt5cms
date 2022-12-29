@@ -2,8 +2,8 @@
 # in the project root.
 
 # The name of the website
-sitename: In A Galaxy Far Far Away..
-payoff: You must unlearn what you have learned
+sitename: Daily Blog
+payoff: There is No Knowledge That Is Not Power -Ralph Waldo Emerson
 
 secret: '%env(APP_SECRET)%'
 

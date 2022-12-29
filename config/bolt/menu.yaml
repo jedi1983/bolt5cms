@@ -3,7 +3,7 @@
 
 main:
   - label: Home
-    title: This is the <b>first<b> menu item.
+    title: Home
     link: homepage
     class: homepage
   # - label: About
@@ -17,8 +17,12 @@ main:
   #       - link: entry/41 # These two have no `label`, so they will show up as the title
   #       - class: sub-class
   #         link: page/42
-  - label: All Post Entries
+  - label: Entries
+    title: All Blog Entries
     link: entries/
+  - label: About
+    title: About Pages
+    link: page/facilis-tempore-repudiandae-expedita-voluptas
   # - label: The Bolt site
   #   link: https://boltcms.io
   #   class: bolt-site
