@@ -5,9 +5,9 @@
 <section class="section section-page">
     <div class="container">
         <div class="columns">
-            <div class="column is-two-thirds">
+            <div class="column is-full">
                 <article role="article" class="content">
-                    <h1 class="title is-size-1 is-size-3-mobile">{{ record.title }}</h1>
+                    <h1 class="title is-size-1 is-size-3-mobile has-text-centered">{{ record.title }}</h1>
 
                     {% include 'partials/_record_meta.twig' with {'extended': true} %}
 
@@ -36,7 +36,7 @@
                     {{ dump(record) }}
                     #}
 
-                    {{ include('partials/_recordfooter.twig') }}
+                   {# {{ include('partials/_recordfooter.twig') }} #}
                 </article>
             </div>
             {# <div class="column">
