@@ -546,7 +546,7 @@ body {
   line-height: 1.5; }
 
 a {
-  color: #DF1C31;
+  color: #2e84bd;
   cursor: pointer;
   text-decoration: none; }
   a strong {
@@ -4861,8 +4861,8 @@ a.navbar-item,
   white-space: nowrap; }
 
 .pagination-link.is-current {
-  background-color: #DF1C31;
-  border-color: #DF1C31;
+  background-color: #2e84bd;
+  border-color: #2e84bd;
   color: #fff; }
 
 .pagination-ellipsis {

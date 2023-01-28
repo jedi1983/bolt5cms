@@ -3,7 +3,7 @@
     setcontent tag.. `ct.slug` is set to each of the (visible) contenttypes,
     and `latest limit 5` ensures we grab the 5 latest published records.
 #}
-<section class="section section-pages hero is-primary is-bold">
+{#<section class="section section-pages hero is-primary is-bold">
     <div class="container">
         <div class="columns">
             {% for ct in config.get('contenttypes')|filter(ct => not ct.viewless and not ct.singleton) %}
@@ -28,4 +28,4 @@
             {% endfor %}
         </div>
     </div>
-</section>
+</section>#}

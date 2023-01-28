@@ -22,7 +22,7 @@
 
     {% for record in records %}
         <article role="article" class="media columns">
-            <div class="media-content column is-7">
+            <div class="media-content column is-9">
                 <div class="content">
                     <h2 class="title"><a href="{{ record|link }}">{{ record|title }}</a></h2>
 
@@ -35,7 +35,7 @@
                         <p>{{ record.excerpt(300, false, search|default('')) }}</p>
                     {% endif %}
 
-                    {% include 'partials/_record_meta.twig' with {'extended': true} %}
+                    {% include 'partials/_record_meta.twig' with {'extended': false} %}
 
                 </div>
             </div>
@@ -63,7 +63,7 @@
     {% endfor %}
 
     {# If there are more records than will fit on one page, the pager is shown. #}
-    {{ pager(records, template = 'helpers/_pager_bulma.html.twig') }}
+    {{ pager(records, template = 'partials/_pager_bulma.html.twig') }} 
     </div>
 </section>
 {% endblock main %}
