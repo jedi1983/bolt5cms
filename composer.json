@@ -11,6 +11,7 @@
         "bolt/redactor": "^1.0",
         "bolt/themes": "^3.3",
         "nelmio/security-bundle": "^2.10",
+        "stevenknibbs/googletagmanager": "^2.1",
         "symfony/flex": "^1.6"
     },
     "replace": {
