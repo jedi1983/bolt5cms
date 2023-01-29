@@ -2,7 +2,7 @@
 # in the project root.
 
 # The name of the website
-sitename: Daily Blog
+sitename: Roland's Blog
 payoff: There is No Knowledge That Is Not Power -Ralph Waldo Emerson
 
 secret: '%env(APP_SECRET)%'
