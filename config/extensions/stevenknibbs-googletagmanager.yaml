@@ -1,0 +1,9 @@
+# The Container ID looks like 'GTM-XXXXX'.
+containerid: GTM-T4T8C2Z
+
+# Manages where Tag Manager script will be loaded.
+zones:
+  # Load on front end pages. Defaults to true.
+  frontend: true
+  # Load on back end/admin pages. Defaults to false.
+  backend: false
