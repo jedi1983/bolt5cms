@@ -19,3 +19,6 @@ services:
     Bolt\Redactor\:
         resource: '../vendor/bolt/redactor/src/*'
         exclude: '../vendor/bolt/redactor/src/{Entity,Exception}'
+    StevenKnibbs\GoogleTagManager\:
+        resource: '../vendor/stevenknibbs/googletagmanager/src/*'
+        exclude: '../vendor/stevenknibbs/googletagmanager/src/{Entity,Exception}'

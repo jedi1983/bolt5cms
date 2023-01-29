@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3b3b8e2a9f1d53d78adc722e95efdb0",
+    "content-hash": "345272297c5149266dcc6c846e7c188b",
     "packages": [
         {
             "name": "api-platform/core",
@@ -6877,6 +6877,52 @@
                 "source": "https://github.com/squirrelphp/twig-php-syntax/tree/v1.7"
             },
             "time": "2021-11-29T23:24:13+00:00"
+        },
+        {
+            "name": "stevenknibbs/googletagmanager",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stevenknibbs/bolt-google-tag-manager.git",
+                "reference": "db946ba0b6131abdf5767929912bedf011335dae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stevenknibbs/bolt-google-tag-manager/zipball/db946ba0b6131abdf5767929912bedf011335dae",
+                "reference": "db946ba0b6131abdf5767929912bedf011335dae",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "bolt/core": "^4.0 | ^5.0"
+            },
+            "type": "bolt-extension",
+            "extra": {
+                "entrypoint": "StevenKnibbs\\GoogleTagManager\\Extension"
+            },
+            "autoload": {
+                "psr-4": {
+                    "StevenKnibbs\\GoogleTagManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steven Knibbs",
+                    "email": "stevenknibbs@gmail.com"
+                }
+            ],
+            "description": "A Google Tag Manager extension for Bolt.",
+            "support": {
+                "issues": "https://github.com/stevenknibbs/bolt-google-tag-manager/issues",
+                "source": "https://github.com/stevenknibbs/bolt-google-tag-manager/tree/v2.1.1"
+            },
+            "time": "2022-06-11T13:30:23+00:00"
         },
         {
             "name": "symfony/asset",

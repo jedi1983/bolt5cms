@@ -11,6 +11,7 @@
         "bolt/redactor": "^1.0",
         "bolt/themes": "^3.3",
         "nelmio/security-bundle": "^2.10",
+        "stevenknibbs/googletagmanager": "^2.1",
         "symfony/flex": "^1.6"
     },
     "replace": {
@@ -28,7 +29,12 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupol/composer-packages": true,
+            "symfony/flex": true
+        }
     },
     "extra": {
         "public-dir": "public",
